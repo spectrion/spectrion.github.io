@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spectrion Labs</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+html { scroll-behavior: smooth; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fredoka', sans-serif;
+}
+
+body {
+  background: #0a0a0a;
+  color: #fff;
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  gap: 6px;
+  font-size: 24px;
+  align-items: center;
+}
+
+.logo .labs {
+  font-family: 'Pacifico', cursive;
+  color: #8f5cff;
+}
+
+nav a {
+  color: #aaa;
+  margin-left: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+nav a:hover { color: #fff; }
+
+
+.hero {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h2 { font-size: 52px; }
+.hero p { color: #aaa; margin-top: 15px; max-width: 650px; }
+
+
+.section {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.section h3 {
+  font-size: 30px;
+}
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.card {
+  background: #111;
+  padding: 30px 25px;
+  border-radius: 18px;
+  width: 280px;
+  border: 1px solid #222;
+  cursor: pointer;
+  transition: 0.25s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #8f5cff;
+}
+
+.logo-box {
+  height: 120px;
+  background: #0b0b0b;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  border: 1px solid #1d1d1d;
+}
+
+.card img {
+  max-height: 85px;
+  max-width: 90%;
+  object-fit: contain;
+}
+
+.card p {
+  color: #aaa;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #111;
+  padding: 25px;
+  border-radius: 16px;
+  width: 92%;
+  max-width: 520px;
+  border: 1px solid #333;
+  position: relative;
+}
+
+.modal-content img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  background: #0b0b0b;
+  border-radius: 12px;
+  border: 1px solid #222;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  color: #aaa;
+  line-height: 1.6;
+  font-size: 14px;
+  white-space: pre-line;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+}
+
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+  border-top: 1px solid #222;
+}
+</style>
+</head>
+
+<body>
+
+>
+<nav>
+  <div class="logo">
+    Spectrion <span class="labs">Labs</span>
+  </div>
+
+  <div>
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a onclick="openAbout()">About</a>
+  </div>
+</nav>
+
+
+<section id="home" class="hero">
+  <h2>Spectrion Labs</h2>
+  <p>
+    Experimental systems, proxy engines, developer tools, and infrastructure platforms built for performance and control.
+  </p>
+</section>
+
+
+<section id="projects" class="section">
+  <h3>Projects</h3>
+
+  <div class="cards">
+
+    <div class="card" onclick="openModal(
+      'Celestal',
+      'Celestal is a proxy engine designed for high-performance web routing and request handling. It focuses on speed, modular control, and flexibility similar to systems like uv or scramjet. It acts as a core networking layer for Spectrion Labs systems.',
+      'https://spectrion.github.io/assets/IMG_4079.png'
+    )">
+      <div class="logo-box">
+        <img src="https://spectrion.github.io/assets/IMG_4079.png">
+      </div>
+      <h4>Celestal</h4>
+      <p>Proxy engine system</p>
+    </div>
+
+    <div class="card" onclick="openModal(
+      'Flayme',
+      'Flayme is an integrated system layer that includes a game panel and DevPanel. The DevPanel provides tools for inspecting system behavior, debugging, runtime control, and interacting with internal services in real time.',
+      'https://spectrion.github.io/assets/IMG_4119.png'
+    )">
+      <div class="logo-box">
+        <img src="https://spectrion.github.io/assets/IMG_4119.png">
+      </div>
+      <h4>Flayme</h4>
+      <p>Game panel + DevPanel</p>
+    </div>
+
+    <div class="card" onclick="openModal(
+      'Tornadoo',
+      'Tornadoo is a legacy iOS boot-based system designed for running alternative environments using low-level boot execution techniques. It is currently paused.',
+      'https://spectrion.github.io/assets/IMG_4101.png'
+    )">
+      <div class="logo-box">
+        <img src="https://spectrion.github.io/assets/IMG_4101.png">
+      </div>
+      <h4>Tornadoo</h4>
+      <p>Paused boot system</p>
+    </div>
+
+    <div class="card" onclick="openModal(
+      'DisplayArray',
+      'DisplayArray is a display management system inspired by DisplayLink-style architectures. It focuses on structured external display output, rendering control, and multi-screen data handling across devices.',
+      'https://spectrion.github.io/assets/IMG_4149.png'
+    )">
+      <div class="logo-box">
+        <img src="https://spectrion.github.io/assets/IMG_4149.png">
+      </div>
+      <h4>DisplayArray</h4>
+      <p>Display system</p>
+    </div>
+
+  </div>
+</section>
+
+>
+<footer>
+  © 2026 Spectrion Labs
+</footer>
+
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">✕</span>
+    <img id="modalImg">
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+  </div>
+</div>
+
+<script>
+function openModal(title, text, img) {
+  document.getElementById("modalImg").style.display = "block";
+  document.getElementById("modalImg").src = img;
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalText").innerText = text;
+  document.getElementById("modal").style.display = "flex";
+}
+
+function openAbout() {
+  document.getElementById("modalImg").style.display = "none";
+
+  document.getElementById("modalTitle").innerText = "About Spectrion Labs";
+
+  document.getElementById("modalText").innerText =
+`Spectrion Labs is a development-focused experimental software group building systems, tools, and infrastructure-level technologies.
+
+We build and explore:
+• Celestal — proxy engine system
+• Flayme — DevPanel + system layer
+• Tornadoo — boot/runtime experimentation system
+• DisplayArray — external display architecture system
+
+We are not a single product — we are a system ecosystem built around modular infrastructure design and performance-focused engineering.`;
+
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+window.onclick = function(e) {
+  if (e.target.id === "modal") closeModal();
+}
+</script>
+
+</body>
+</html>
